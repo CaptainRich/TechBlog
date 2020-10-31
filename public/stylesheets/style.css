@@ -4,8 +4,8 @@
   
   body, html {
     height: 100%;
-    padding: 0;
-    margin: 0;
+    /* padding: 0; */
+    margin: 0;  
     font-family: sans-serif;
     color: #333;
   }
@@ -23,6 +23,7 @@
 
   .menu {
     background-color: rgb(147, 189, 228);
+    min-height: 5em;
   }
   
   button {
@@ -77,23 +78,31 @@
     display: flex;
     flex-direction: column;
   }
-  
-  header {
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1%;
-  }
-  
-  header h1 {
-    font-size: 1.5em;
-    }
-  
+    
   main {
     flex: 1;
     padding: 2% 4%;
   }
+
+  header  {
+    border-bottom: 2px solid darkblue;
+    border-top: 2px solid darkblue;
+    /* display: flex;  
+    justify-content: space-between;  */
+    align-items: center;
+    padding: 10px 20px 10px;
+  }
+  
+  header h1 {
+    font-size: 1.5em;
+    background-color: rgb(196, 193, 193);
+    color: darkblue;
+    padding: 0 10px;
+    border-radius: .3em;
+    max-width: 250px;
+    box-shadow: 6px 5px gainsboro;
+    }
+
   
   .btn-no-style {
     background: none;
