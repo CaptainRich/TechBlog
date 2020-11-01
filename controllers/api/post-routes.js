@@ -35,7 +35,11 @@ router.get('/', (req, res) => {
         }
       ]
      })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbPostData => {
+      console.log( "random text");
+      console.log( dbPostData);
+      res.json(dbPostData)})
+
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -55,8 +59,8 @@ router.get('/:id', (req, res) => {
       'id',
       'post_data',
       'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'created_at'//,
+     // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       // Include the Comment model here, which also includes the user model:

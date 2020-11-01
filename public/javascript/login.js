@@ -2,6 +2,7 @@
 
 // Front-end for the login page.
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Handle the 'sign-up' activity
 async function signupFormHandler(event) {
@@ -58,6 +59,11 @@ async function loginFormHandler(event) {
 
         // Check the response status
         if( response.ok ) {
+            
+            // Start the timer, to kill the session if inactive for more than 10 minutes
+            monitorTime();
+
+            // Display the user's dashboard
             document.location.replace('/dashboard');
         }
         else {
@@ -66,9 +72,10 @@ async function loginFormHandler(event) {
     }
 
 }
-  
 
-  // This 'listener' for the submit buttons on the form.
-  document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+  
+//////////////////////////////////////////////////////////////////////////////////
+// This 'listener' for the submit buttons on the form.
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
   

@@ -62,7 +62,7 @@ Given a CMS-style blog site,
 * The application is deployed on Heroku.
 
 ## Tech Blog Logic
-This application follows the MVC (model-view-controller) architecture. 
+This application follows the MVC (model-view-controller) architecture. When a user logs in or signs up, a 10 minute timer is started to monitor activity.  After 10 minutes of inactivity, the use is logged out.
 
 
 ## Application Screen Shot

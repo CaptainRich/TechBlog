@@ -14,14 +14,16 @@ const hbs = exphbs.create( {helpers} );
 
 const sess = {
   secret: 'Really super-duper secret',   // replace this with a real password in the '.env' file
-  cookie: {},                            // Tell the session to use cookies. Options can be added to this object.
-  resave: false,
+  cookie: {
+    httpOnly: true,
+    maxAge: 10 * 60 * 1000               // Time out set to 10 minutes
+  },                                     // Tell the session to use cookies. Options can be added to this object.
+  resave: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
   })
 };
-
 
 
 const app = express();

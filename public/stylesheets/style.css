@@ -12,7 +12,8 @@
   
   a {
     text-decoration: none;
-    color: #225ca3;
+    /* color: #225ca3; */
+    color: darkblue;
     font-weight: bold;
     transition: color .1s;
   }
@@ -110,7 +111,8 @@
     padding: 0;
     cursor: pointer;
     text-decoration: none;
-    color: #225ca3;
+    /* color: #225ca3;   */
+    color: darkblue;
     font-size: 100%;
     font-weight: bold;
     transition: color .1s;
@@ -132,13 +134,21 @@
   
   .post {
     margin-bottom: 2%;
-    line-height: 150%;
+    line-height: 125%;
   }
   
-  .post .title span {
+  .post .title  {
+    background-color: rgb(196, 193, 193);
+    color: darkblue;
     font-style: italic;
     font-size: 90%;
-    color: #7d7d7d;
+  }
+    
+  .post .title  span {
+    background-color: rgb(196, 193, 193);
+    color: darkblue;
+    font-size: 75%;
+    float: right;
   }
   
   .edit-link {
