@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
       order: [['created_at', 'DESC']],
       attributes: [
         'id',
-        'post_url',
+        'post_data',
         'title',
         'created_at',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'post_data',
       'title',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -97,10 +97,10 @@ router.get('/:id', (req, res) => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Route to create a new post
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  // expects {title: 'Taskmaster goes public!', post_data: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
+    post_data: req.body.post_data,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -163,23 +163,6 @@ router.put('/:id', withAuth, (req, res) => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Route to delete a post
 router.delete('/:id', withAuth, (req, res) => {
-  // Post.destroy({
-  //   where: {
-  //     id: req.params.id
-  //   }
-  // })
-  //   .then(dbPostData => {
-  //     if (!dbPostData) {
-  //       res.status(404).json({ message: 'No post found with this id' });
-  //       return;
-  //     }
-  //     res.json(dbPostData);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //     res.status(500).json(err);
-  //   });
-
 
     Post.findOne({
       where: {id: req.params.id},

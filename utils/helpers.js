@@ -20,6 +20,9 @@ module.exports = {
     //////////////////////////////////////////////////////////////////////////////
     // Function to address URL shortening
     format_url: url => {
+
+        return;
+        
         return url
             .replace('http://', '')
             .replace('https://', '')
