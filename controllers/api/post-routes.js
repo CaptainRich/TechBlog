@@ -16,8 +16,8 @@ router.get('/', (req, res) => {
         'id',
         'post_data',
         'title',
-        'created_at',
-        [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+        'created_at'//,
+        //[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
         // include the Comment model here:
@@ -138,10 +138,11 @@ router.put('/upvote', withAuth, (req, res) => {
 // Route to update a post's title
 router.put('/:id', withAuth, (req, res) => {
 
-  // Expects 'post id', 'new post title'
+  // Expects 'post id', 'new post title', 'new post body'
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_data: req.body.post_data
     },
     {
       where: {

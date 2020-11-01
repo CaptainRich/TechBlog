@@ -26,11 +26,14 @@ async function signupFormHandler(event) {
         })
 
         // Check the response status
-        if( response.ok ) {
-            console.log( 'Successfully signed up a new user.' );
+        if (response.ok) {
+            console.log('Successfully signed up a new user.');
+
+            // Display the user's dashboard
+            document.location.replace('/');
         }
         else {
-            alert( response.statusText );
+            alert(response.statusText);
         }
     }
 
@@ -59,9 +62,6 @@ async function loginFormHandler(event) {
 
         // Check the response status
         if( response.ok ) {
-            
-            // Start the timer, to kill the session if inactive for more than 10 minutes
-            monitorTime();
 
             // Display the user's dashboard
             document.location.replace('/dashboard');

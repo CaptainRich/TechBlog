@@ -27,4 +27,4 @@ async function upvoteClickHandler(event) {
   
 
   // The event listener
-  document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
+ // document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);

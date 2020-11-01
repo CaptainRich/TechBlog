@@ -7,7 +7,9 @@
   <form class="edit-post-form">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{post.post_data}})</span>
+    </div>
+    <div>
+      <textarea id="post-data" name="post-data" rows="5" cols="55">{{post.post_data}}</textarea>
       <!-- <span>({{format_url post.post_data}})</span>   -->
     </div>
 
