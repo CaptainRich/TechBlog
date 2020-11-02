@@ -41,6 +41,6 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 // Turn on the connection to db and server
-sequelize.sync({ force: false }).then(() => {      // 'true' forces the tables to re-create if there are association changes.
+sequelize.sync({ force: true }).then(() => {      // 'true' forces the tables to re-create if there are association changes.
   app.listen(PORT, () => console.log('Now listening'));
 });
