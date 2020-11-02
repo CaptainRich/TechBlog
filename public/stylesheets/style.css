@@ -104,6 +104,10 @@
     box-shadow: 6px 5px gainsboro;
     }
 
+    h3 {
+      color: darkblue;
+    }
+
   
   .btn-no-style {
     background: none;

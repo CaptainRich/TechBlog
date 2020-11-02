@@ -137,7 +137,7 @@ router.put('/upvote', withAuth, (req, res) => {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Route to update a post's title
 router.put('/:id', withAuth, (req, res) => {
-
+  console.log( req );
   // Expects 'post id', 'new post title', 'new post body'
   Post.update(
     {
