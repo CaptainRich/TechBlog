@@ -6,7 +6,7 @@ Richard Ay, October 2020
 * [Project Objective](#project-objective)
 * [Acceptance Criteria](#acceptance-criteria)
 * [Technologies Used](#technologies-used)
-* [Tech Blog Logic](#ecommerce-logic)
+* [Tech Blog Logic](#tech-blog-logic)
 * [Application Screen Shot](#application-screen-shot)
 
 
@@ -59,10 +59,12 @@ Given a CMS-style blog site,
 * The NPM package dotenv.
 * The NPM package bcrypt.
 
-* The application is deployed on Heroku.
+* The application is deployed on Heroku: https://macabre-village-44311.herokuapp.com/
 
 ## Tech Blog Logic
 This application follows the MVC (model-view-controller) architecture. When a user logs in or signs up, a 10 minute timer is started (to monitor activity), via the session cookie.  Logging in or signing up (as a new user) takes you to the 'home' page where all the blog posts can be seen.
+
+Once logged in, users can add blogs or add comments to blogs.  The user dashboard shows the blogs created by the (logged in) user and allows that user to edit the blog.  Blogs can also be deleted by the (logged in) owner.
 
 
 ## Application Screen Shot
