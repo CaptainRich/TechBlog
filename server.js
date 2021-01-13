@@ -1,7 +1,7 @@
 
 
 const path           = require('path');
-const exphbs         = require('express-handlebars');
+
 const session        = require( 'express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -10,12 +10,13 @@ const routes         = require('./controllers');
 const sequelize      = require('./config/connection');
 const helpers        = require('./utils/helpers');
 
+const exphbs         = require('express-handlebars');
 const hbs = exphbs.create( {helpers} );
 
 const sess = {
   secret: 'Really super-duper secret',   // replace this with a real password in the '.env' file
   cookie: {
-    httpOnly: true,
+    //httpOnly: true,
     maxAge: 10 * 60 * 1000               // Time out set to 10 minutes
   },                                     // Tell the session to use cookies. Options can be added to this object.
   resave: true,
@@ -31,8 +32,8 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static('public'));
 app.use(session(sess));
 
 app.engine( 'handlebars', hbs.engine);
