@@ -6,7 +6,7 @@ const session        = require( 'express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const express        = require('express');
-const routes         = require('./controllers/');
+const routes         = require('./controllers');
 const sequelize      = require('./config/connection');
 const helpers        = require('./utils/helpers');
 
@@ -19,7 +19,7 @@ const sess = {
     //httpOnly: true,
     maxAge: 10 * 60 * 1000               // Time out set to 10 minutes
   },                                     // Tell the session to use cookies. Options can be added to this object.
-  resave: true,
+  resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
